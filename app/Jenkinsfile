@@ -15,8 +15,11 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker -v'
-                    sh 'docker build -t $DOCKER_IMAGE .'
+                    // Navigate to the directory containing the Dockerfile
+                    dir('app') {
+                        // Build the Docker image using the Dockerfile in the current directory
+                        sh 'docker build -t $DOCKER_IMAGE .'
+                    }
                 }
             }
         }
