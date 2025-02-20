@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'ankushadda247/todo-app'  // Change this
+        DOCKER_IMAGE = "ankushadda247/todo-app:${BUILD_NUMBER}"
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Ankush247-devops/to-do.git'  // Change this
+                git branch: 'main', url: 'https://github.com/Ankush247-devops/to-do.git'
             }
         }
 
@@ -41,8 +41,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    echo "Deploying to Kubernetes (Minikube or any cluster)..."
-                    // You can add `kubectl apply -f deployment.yaml` here if needed
+                    echo "Deploying to Kubernetes..."
+                    // Add actual `kubectl apply` command if needed
                 }
             }
         }
