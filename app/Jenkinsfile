@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Ankush247-devops/todo-app.git'  // Change this
+                git 'https://github.com/Ankush247-devops/to-do.git'  // Change this
             }
         }
 
